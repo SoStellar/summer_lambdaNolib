@@ -3,7 +3,8 @@ import pg from "pg";
 export const handler = async (event) => {
   try {
     const requestBody = event;
-    const value1 = requestBody.value1; // Replace 'value1' with the actual key in your JSON
+    const value1 = requestBody.value1;
+    const value2 = requestBody.value2; // Replace 'value1' with the actual key in your JSON
 
     // Create the PostgreSQL connection configuration
     const rdsConfig = {
@@ -18,8 +19,8 @@ export const handler = async (event) => {
     await client.connect();
 
     // Insert values into the table
-    const insertQuery = `INSERT INTO lambdatesttable (name, age) VALUES ($1)`; // Replace 'your_table', 'column1', 'column2' with your actual table and column names
-    const insertValues = [value1]; // Provide the values extracted from the JSON body
+    const insertQuery = `INSERT INTO lambdatesttable (name, age) VALUES ($1,$2)`; // Replace 'your_table', 'column1', 'column2' with your actual table and column names
+    const insertValues = [value1, value2]; // Provide the values extracted from the JSON body
 
     await client.query(insertQuery, insertValues);
 
