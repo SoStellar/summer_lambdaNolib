@@ -1,0 +1,19 @@
+{
+  "name": "serverless-nolib",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js",
+    "setup": "./node_modules/.bin/node-lambda setup",
+    "test": "node index.js",
+    "package": "./node_modules/.bin/node-lambda package",
+    "deploy": "./node_modules/.bin/node-lambda deploy"
+  },
+  "dependencies": {
+    "dotenv": "^16.1.1",
+    "node-lambda": "^1.2.0",
+    "pg": "^8.11.0"
+  }
+}
